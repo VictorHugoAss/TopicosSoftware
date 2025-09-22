@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Criador de Personagens RPG</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Criador de Personagens</h1>
+        <form id="creation-form" action="/" method="post" class="form-card">
+            <div class="form-group">
+                <label for="nome">Nome do Personagem:</label>
+                <input type="text" id="nome" name="nome" required class="input-field">
+            </div>
+
+            <div class="form-group">
+                <label for="geracao_atributos">Estilo de Geração de Atributos:</label>
+                <select id="geracao_atributos" name="geracao_atributos" class="input-field">
+                    <option value="classico">Clássico (3d6 ordem fixa)</option>
+                    <option value="aventureiro">Aventureiro (3d6 escolha ordem)</option>
+                    <option value="heroico">Heróico (4d6 escolha ordem)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="raca">Raça:</label>
+                <select id="raca" name="raca" class="input-field">
+                    <option value="Humano">Humano</option>
+                    <option value="Elfo">Elfo</option>
+                    <option value="Anao">Anão</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="classe">Classe:</label>
+                <select id="classe" name="classe" class="input-field">
+                    <option value="Guerreiro">Guerreiro</option>
+                    <option value="Clerigo">Clérigo</option>
+                    <option value="Ladrao">Ladrão</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Gerar Personagem</button>
+        </form>
+    </div>
+</body>
+</html>

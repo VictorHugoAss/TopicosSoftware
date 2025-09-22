@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Distribuir Atributos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Distribuir Atributos</h1>
+        
+        <div class="distribute-info">
+            <p>Clique nos valores para atribuí-los:</p>
+            <div class="rolled-values" id="valores-disponiveis">
+                {% for valor in valores %}
+                <span class="value-chip" data-value="{{ valor }}">{{ valor }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <form id="distribute-form" action="{{ url_for('main.distribuir_atributos') }}" method="post" class="form-card">
+            <input type="hidden" name="nome" value="{{ nome }}">
+            <input type="hidden" name="raca" value="{{ raca }}">
+            <input type="hidden" name="classe" value="{{ classe }}">
+            
+            <div class="attributes-grid">
+                <div class="form-group">
+                    <label for="forca">Força:</label>
+                    <input type="number" id="forca" name="forca" required class="input-field attribute-input" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="destreza">Destreza:</label>
+                    <input type="number" id="destreza" name="destreza" required class="input-field attribute-input" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="constituicao">Constituição:</label>
+                    <input type="number" id="constituicao" name="constituicao" required class="input-field attribute-input" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="inteligencia">Inteligência:</label>
+                    <input type="number" id="inteligencia" name="inteligencia" required class="input-field attribute-input" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="sabedoria">Sabedoria:</label>
+                    <input type="number" id="sabedoria" name="sabedoria" required class="input-field attribute-input" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="carisma">Carisma:</label>
+                    <input type="number" id="carisma" name="carisma" required class="input-field attribute-input" readonly>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn" id="submit-btn" disabled>Criar Personagem</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

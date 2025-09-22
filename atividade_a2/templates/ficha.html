@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Ficha do Personagem</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Ficha de Personagem</h1>
+        <div class="ficha-card">
+            <div class="ficha-header">
+                <h2>{{ personagem.nome }}</h2>
+                <div class="ficha-meta">
+                    <p><strong>Raça:</strong> {{ personagem.raca.__class__.__name__ }}</p>
+                    <p><strong>Classe:</strong> {{ personagem.classe.__class__.__name__ }}</p>
+                </div>
+            </div>
+
+            <div class="ficha-section">
+                <h3>Atributos</h3>
+                <div class="attributes-grid">
+                    <div class="attribute-item">
+                        <span class="attribute-label">Força</span>
+                        <span class="attribute-value">{{ personagem.atributos.forca }}</span>
+                    </div>
+                    <div class="attribute-item">
+                        <span class="attribute-label">Destreza</span>
+                        <span class="attribute-value">{{ personagem.atributos.destreza }}</span>
+                    </div>
+                    <div class="attribute-item">
+                        <span class="attribute-label">Constituição</span>
+                        <span class="attribute-value">{{ personagem.atributos.constituicao }}</span>
+                    </div>
+                    <div class="attribute-item">
+                        <span class="attribute-label">Inteligência</span>
+                        <span class="attribute-value">{{ personagem.atributos.inteligencia }}</span>
+                    </div>
+                    <div class="attribute-item">
+                        <span class="attribute-label">Sabedoria</span>
+                        <span class="attribute-value">{{ personagem.atributos.sabedoria }}</span>
+                    </div>
+                    <div class="attribute-item">
+                        <span class="attribute-label">Carisma</span>
+                        <span class="attribute-value">{{ personagem.atributos.carisma }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ficha-section">
+                <h3>Informações Adicionais</h3>
+                <ul class="info-list">
+                    <li><strong>Movimento:</strong> {{ personagem.raca.movimento }}</li>
+                    <li><strong>Infravisão:</strong> {{ personagem.raca.infravisao }}</li>
+                    <li><strong>Alinhamento:</strong> {{ personagem.raca.alinhamento }}</li>
+                </ul>
+            </div>
+
+            <div class="ficha-section">
+                <h3>Habilidades Raciais</h3>
+                <ul class="abilities-list">
+                    {% for habilidade in personagem.raca.habilidades() %}
+                    <li>{{ habilidade }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="ficha-section">
+                <h3>Habilidades de Classe</h3>
+                <ul class="abilities-list">
+                    {% for habilidade in personagem.classe.habilidades() %}
+                    <li>{{ habilidade }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <a href="/" class="btn back-btn">Criar Outro Personagem</a>
+    </div>
+</body>
+</html>
