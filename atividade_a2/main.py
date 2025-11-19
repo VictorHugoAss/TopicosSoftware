@@ -1,3 +1,5 @@
+## Utilizado na primeira parte do projeto, antes do front-end
+
 from atributos import GeradorAtributos, Atributos
 from racas import Humano, Elfo, Anao
 from classes import Guerreiro, Clerigo, Ladrao
@@ -65,3 +67,4 @@ if __name__ == "__main__":
 
     personagem = Personagem(nome, atributos, raca, classe)
     print(personagem.ficha())
+
